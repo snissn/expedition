@@ -6,7 +6,15 @@ import { hexToDate, hexToString, hexToNumber } from "@etclabscore/eserialize";
 import { useTranslation } from "react-i18next";
 import { useHistory } from "react-router-dom";
 
-import { Table, TableBody, TableCell, TableRow, Button, LinearProgress, Typography } from "@material-ui/core";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableRow,
+  Button,
+  LinearProgress,
+  Typography
+} from "@material-ui/core";
 
 import BlockGasPrice from "./BlockGasPrice";
 
@@ -16,13 +24,24 @@ function BlockView(props: any) {
   const { t } = useTranslation();
 
   if (!block) {
-    return (<div>Loading...</div>);
+    return <div>Loading...</div>;
   }
 
   const {
-    timestamp, hash, parentHash, miner, nonce, difficulty,
-    extraData, stateRoot, transactionsRoot, receiptsRoot, transactions,
-    gasUsed, gasLimit, size,
+    timestamp,
+    hash,
+    parentHash,
+    miner,
+    nonce,
+    difficulty,
+    extraData,
+    stateRoot,
+    transactionsRoot,
+    receiptsRoot,
+    transactions,
+    gasUsed,
+    gasLimit,
+    size
   } = block;
 
   const filledPercent = (hexToNumber(gasUsed) / hexToNumber(gasLimit)) * 100;
@@ -30,7 +49,9 @@ function BlockView(props: any) {
   return (
     <div>
       <Button
-        onClick={() => { history.push(`/block/${block.hash}/raw`); }}
+        onClick={() => {
+          history.push(`/block/${block.hash}/raw`);
+        }}
         style={{ position: "absolute", right: "10px", top: "75px" }}
       >
         View Raw
@@ -49,7 +70,7 @@ function BlockView(props: any) {
                 {hexToNumber(gasUsed)}/{hexToNumber(gasLimit)}
               </Typography>
               <LinearProgress
-                style={{width: "150px"}}
+                style={{ width: "150px" }}
                 value={filledPercent}
                 variant="determinate"
               />
@@ -72,31 +93,22 @@ function BlockView(props: any) {
             <TableCell>{t("ParentHash")}</TableCell>
             <TableCell>
               <Link
-                component={({ className, children }: { children: any, className: string }) => (
+                component={({
+                  className,
+                  children
+                }: {
+                  children: any;
+                  className: string;
+                }) => (
                   <RouterLink className={className} to={`/block/${parentHash}`}>
                     {children}
                   </RouterLink>
-                )}>
+                )}
+              >
                 {parentHash}
               </Link>
             </TableCell>
           </TableRow>
-
-          <TableRow>
-            <TableCell>{t("Miner")}</TableCell>
-            <TableCell>
-              <Link
-                component={({ className, children }: { children: any, className: string }) => (
-                  <RouterLink className={className} to={`/address/${miner}`}>
-                    {children}
-                  </RouterLink>
-                )}>
-                {miner}
-              </Link>
-            </TableCell>
-          </TableRow>
-
-          <BlockGasPrice block={block} />
 
           <TableRow>
             <TableCell>{t("Gas Limit")}</TableCell>
@@ -106,36 +118,6 @@ function BlockView(props: any) {
           <TableRow>
             <TableCell>{t("Size")}</TableCell>
             <TableCell>{hexToNumber(size)}</TableCell>
-          </TableRow>
-
-          <TableRow>
-            <TableCell>{t("Nonce")}</TableCell>
-            <TableCell>{hexToNumber(nonce)}</TableCell>
-          </TableRow>
-
-          <TableRow>
-            <TableCell>{t("Difficulty")}</TableCell>
-            <TableCell>{hexToNumber(difficulty)}</TableCell>
-          </TableRow>
-
-          <TableRow>
-            <TableCell>{t("Extra Data")}</TableCell>
-            <TableCell>{hexToString(extraData)}</TableCell>
-          </TableRow>
-
-          <TableRow>
-            <TableCell>{t("State Root")}</TableCell>
-            <TableCell>{stateRoot}</TableCell>
-          </TableRow>
-
-          <TableRow>
-            <TableCell>{t("Transaction Root")}</TableCell>
-            <TableCell>{transactionsRoot}</TableCell>
-          </TableRow>
-
-          <TableRow>
-            <TableCell>{t("Receipts Root")}</TableCell>
-            <TableCell>{receiptsRoot}</TableCell>
           </TableRow>
         </TableBody>
       </Table>

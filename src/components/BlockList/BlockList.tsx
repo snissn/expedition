@@ -10,7 +10,7 @@ import {
 } from "@material-ui/core";
 import * as React from "react";
 import Link from "@material-ui/core/Link";
-import { hexToDate, hexToNumber, hexToString } from "@etclabscore/eserialize";
+import { hexToDate, hexToNumber } from "@etclabscore/eserialize";
 import { Link as RouterLink } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
@@ -63,10 +63,6 @@ function BlockList({ blocks }: any) {
               b.hash.substring(2, 6) +
               "—" +
               b.hash.substring(b.hash.length - 5, b.hash.length - 1);
-            const authorHashShort =
-              b.miner.substring(2, 6) +
-              "—" +
-              b.miner.substring(b.miner.length - 5, b.miner.length - 1);
 
             // Colorize left border derived from author credit account.
             const authorHashStyle = {

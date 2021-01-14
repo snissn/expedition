@@ -2,7 +2,7 @@ import * as React from "react";
 import { Link as RouterLink } from "react-router-dom";
 import Link from "@material-ui/core/Link";
 import TxList from "../TxList";
-import { hexToDate, hexToString, hexToNumber } from "@etclabscore/eserialize";
+import { hexToDate, hexToNumber } from "@etclabscore/eserialize";
 import { useTranslation } from "react-i18next";
 import { useHistory } from "react-router-dom";
 
@@ -15,8 +15,6 @@ import {
   LinearProgress,
   Typography
 } from "@material-ui/core";
-
-import BlockGasPrice from "./BlockGasPrice";
 
 function BlockView(props: any) {
   const { block } = props;
@@ -31,13 +29,6 @@ function BlockView(props: any) {
     timestamp,
     hash,
     parentHash,
-    miner,
-    nonce,
-    difficulty,
-    extraData,
-    stateRoot,
-    transactionsRoot,
-    receiptsRoot,
     transactions,
     gasUsed,
     gasLimit,

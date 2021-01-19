@@ -38,11 +38,11 @@ export default (props: any) => {
                     Connect your metamask or web3 client to
               </Typography>
                 <Typography color="textSecondary" variant="h5" align="center" paragraph>
-                    https://chain.token.ax
+                    https://chain.token.ax (Chain id 1337)
                 </Typography>
                 <Typography variant="h5" align="center" color="textPrimary" paragraph>
 
-                    to start using the free cloud hosted Token.ax chain.
+                    to start using the free cloud hosted Token.ax chain.<br /><br />This chain is set up to maximize developer ease and accepts transations with zero gas price and has instant block times.
             </Typography>
             </Container>
         </Box>

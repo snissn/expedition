@@ -1,18 +1,19 @@
 import { Grid, Typography, CircularProgress, Theme, Button } from "@material-ui/core";
 import useCoreGethStore from "../stores/useCoreGethStore";
 import * as React from "react";
-import { weiToGwei } from "../components/formatters";
-import HashRate from "../components/HashRate";
+import { weiToGwei } from "./formatters";
+import HashRate from "./HashRate";
+
 import getBlocks, { useBlockNumber } from "../helpers";
 import useInterval from "use-interval";
 import { useTheme } from "@material-ui/styles";
 import getTheme from "../themes/victoryTheme";
-import ChartCard from "../components/ChartCard";
-import BlockListContainer from "./BlockList";
+import ChartCard from "./ChartCard";
+import BlockListContainer from "../containers/BlockList";
 import { hexToNumber } from "@etclabscore/eserialize";
 import { useTranslation } from "react-i18next";
 import { ArrowForwardIos } from "@material-ui/icons";
-import StatCharts from "../components/StatCharts";
+import StatCharts from "./StatCharts";
 import EthereumJSONRPC, { Block as IBlock, IsSyncingResult as ISyncing} from "@etclabscore/ethereum-json-rpc";
 
 const useState = React.useState;

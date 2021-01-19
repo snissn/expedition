@@ -22,7 +22,7 @@ import useDarkMode from "use-dark-mode";
 import "./App.css";
 import Address from "./containers/Address";
 import Block from "./containers/Block";
-import Dashboard from "./containers/Dashboard";
+import Splash from "./containers/Splash";
 import NodeView from "./containers/NodeView";
 import Transaction from "./containers/Transaction";
 import ConfigurationMenu from "./containers/ConfigurationMenu";
@@ -262,7 +262,7 @@ function App(props: any) {
                     </Grid>
                     <Grid>
                       <Typography color="textSecondary" variant="h6">
-                        {t("Firechain Block Exporer")}
+                        {t("Token.ax Block Exporer")}
                       </Typography>
                     </Grid>
                   </Grid>
@@ -335,7 +335,7 @@ function App(props: any) {
           <QueryParamProvider ReactRouterRoute={Route}>
             <CssBaseline />
             <Switch>
-              <Route path={"/"} component={Dashboard} exact={true} />
+              <Route path={"/"} component={Splash} exact={true} />
               <Route
                 path={"/stats/miners"}
                 component={MinerStatsPage}

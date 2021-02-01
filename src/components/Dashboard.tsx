@@ -15,6 +15,7 @@ import { useTranslation } from "react-i18next";
 import { ArrowForwardIos } from "@material-ui/icons";
 import StatCharts from "./StatCharts";
 import EthereumJSONRPC, { Block as IBlock, IsSyncingResult as ISyncing} from "@etclabscore/ethereum-json-rpc";
+import { useHistory } from 'react-router-dom';
 
 const useState = React.useState;
 
@@ -38,6 +39,8 @@ export default (props: any) => {
   const [peerCount, setPeerCount] = useState<string>();
 
   const { t } = useTranslation();
+
+  const history = useHistory();
 
   React.useEffect(() => {
     if (!erpc) { return; }
@@ -139,7 +142,7 @@ export default (props: any) => {
           color="primary"
           variant="outlined"
           endIcon={<ArrowForwardIos />}
-          onClick={() => props.history.push("/stats/miners")}
+          onClick={() => history.push("/stats/miners")}
         >More Stats</Button>
       </Grid>
       <br />
@@ -150,7 +153,7 @@ export default (props: any) => {
         disablePrev={true}
         disableNext={blockNumber < 14}
         onNext={() => {
-          props.history.push(`/blocks/${blockNumber - 15}`);
+          history.push(`/blocks/${blockNumber - 15}`);
         }}
         style={{ marginTop: "30px" }} />
     </div >

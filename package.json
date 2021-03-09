@@ -12,7 +12,7 @@
     "url": "https://github.com/etclabscore/expedition.git"
   },
   "scripts": {
-    "build": "react-scripts build && cp build/index.html build/404.html",
+    "build": "CI=false react-scripts build && cp build/index.html build/404.html",
     "start": "react-scripts start",
     "test": "react-scripts test",
     "service-runner": "jade-service-runner",

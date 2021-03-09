@@ -262,7 +262,7 @@ function App(props: any) {
                     </Grid>
                     <Grid>
                       <Typography color="textSecondary" variant="h6">
-                        {t("Token.ax Block Exporer")}
+                        {t("Tokenhost.org Block Exporer")}
                       </Typography>
                     </Grid>
                   </Grid>

@@ -60,10 +60,10 @@ export default (props: any) => {
             align="center"
             paragraph
           >
-            https://chain.token.ax (Chain id 1337)
+            https://chain.tokenhost.org (Chain id 1337)
           </Typography>
           <Typography variant="h5" align="center" color="textPrimary" paragraph>
-            to start using the free cloud hosted Token.ax chain.
+            to start using the free cloud hosted Tokenhost chain.
             <br />
             <br />
             This chain is set up to maximize developer ease and accepts

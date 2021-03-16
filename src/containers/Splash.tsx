@@ -60,7 +60,7 @@ export default (props: any) => {
             align="center"
             paragraph
           >
-            https://chain.tokenhost.org (Chain id 1337)
+            https://chain.tokenhost.com (Chain id 1337)
           </Typography>
           <Typography variant="h5" align="center" color="textPrimary" paragraph>
             to start using the free cloud hosted Tokenhost chain.

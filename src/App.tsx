@@ -53,7 +53,7 @@ import {
 import { createPreserveQueryHistory } from "./helpers/createPreserveHistory";
 import BlockRawContainer from "./containers/BlockRawContainer";
 import TransactionRawContainer from "./containers/TransactionRawContainer";
-import expeditionLogo from "./expedition.png";
+import expeditionLogo from "./TokenHost.png";
 import MinerStatsPage from "./containers/MinerStatsPage";
 
 const history = createPreserveQueryHistory(createBrowserHistory, [
@@ -262,7 +262,7 @@ function App(props: any) {
                     </Grid>
                     <Grid>
                       <Typography color="textSecondary" variant="h6">
-                        {t("Tokenhost.org Block Exporer")}
+                        {t("Block Explorer")}
                       </Typography>
                     </Grid>
                   </Grid>

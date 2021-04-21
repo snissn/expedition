@@ -142,7 +142,7 @@ export default (props: any) => {
           color="primary"
           variant="outlined"
           endIcon={<ArrowForwardIos />}
-          onClick={() => history.push("/stats/miners")}
+          onClick={() => history.push("explorer/stats/miners")}
         >More Stats</Button>
       </Grid>
       <br />
@@ -153,7 +153,7 @@ export default (props: any) => {
         disablePrev={true}
         disableNext={blockNumber < 14}
         onNext={() => {
-          history.push(`/blocks/${blockNumber - 15}`);
+          history.push(`/explorer/blocks/${blockNumber - 15}`);
         }}
         style={{ marginTop: "30px" }} />
     </div >

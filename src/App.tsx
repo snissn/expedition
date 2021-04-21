@@ -17,7 +17,7 @@ import React, {
   useState,
   useEffect
 } from "react";
-import { Link as RouterLink, Router, Route, Switch } from "react-router-dom";
+import { NavLink as RouterLink, Router, Route, Switch } from "react-router-dom";
 import useDarkMode from "use-dark-mode";
 import "./App.css";
 import Address from "./containers/Address";
@@ -55,6 +55,9 @@ import BlockRawContainer from "./containers/BlockRawContainer";
 import TransactionRawContainer from "./containers/TransactionRawContainer";
 import expeditionLogo from "./TokenHost.png";
 import MinerStatsPage from "./containers/MinerStatsPage";
+
+import Overview from './components/Overview'
+import Dashboard from "./components/Dashboard";
 
 const history = createPreserveQueryHistory(createBrowserHistory, [
   "network",
@@ -203,7 +206,7 @@ function App(props: any) {
       }
 
       if (transaction) {
-        history.push(`/tx/${q}`);
+        history.push(`tx/${q}`);
       }
       let block;
       try {
@@ -229,129 +232,34 @@ function App(props: any) {
   return (
     <Router history={history}>
       <ThemeProvider theme={theme}>
-        <AppBar position="sticky" color="default" elevation={0}>
-          <Toolbar>
-            <Grid
-              justify="space-between"
-              alignItems="center"
-              alignContent="center"
-              container
-            >
-              <Grid item style={{ marginTop: "8px" }}>
-                <Link
-                  component={({
-                    className,
-                    children
-                  }: {
-                    children: any;
-                    className: string;
-                  }) => (
-                    <RouterLink className={className} to={"/"}>
-                      {children}
-                    </RouterLink>
-                  )}
-                >
-                  <Grid container>
-                    <Grid>
-                      <img
-                        alt="expedition-logo"
-                        height="30"
-                        style={{ marginRight: "10px" }}
-                        src={expeditionLogo}
-                      />
-                    </Grid>
-                    <Grid>
-                      <Typography color="textSecondary" variant="h6">
-                        {t("Block Explorer")}
-                      </Typography>
-                    </Grid>
-                  </Grid>
-                </Link>
-              </Grid>
-              <Grid item md={6} xs={12}>
-                <InputBase
-                  placeholder={t(
-                    "Enter an Address, Transaction Hash or Block Number"
-                  )}
-                  onKeyDown={(event: KeyboardEvent<HTMLInputElement>) => {
-                    if (event.keyCode === 13) {
-                      handleSearch(search);
-                    }
-                  }}
-                  onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                    if (event.target.value) {
-                      const { value } = event.target;
-                      setSearch(value as any);
-                    }
-                  }}
-                  fullWidth
-                  style={{
-                    background: "rgba(0,0,0,0.1)",
-                    borderRadius: "4px",
-                    padding: "5px 10px 0px 10px",
-                    marginRight: "5px"
-                  }}
-                />
-              </Grid>
-              <Grid item>
-                <NetworkDropdown
-                  networks={networks}
-                  setSelectedNetwork={setSelectedNetwork}
-                  selectedNetwork={selectedNetwork}
-                />
-                <LanguageMenu />
-                <Tooltip title={t("JSON-RPC API Documentation") as string}>
-                  <IconButton
-                    onClick={
-                      () =>
-                        window.open(
-                          "https://playground.open-rpc.org/?schemaUrl=https://raw.githubusercontent.com/etclabscore/ethereum-json-rpc-specification/master/openrpc.json"
-                        ) //tslint:disable-line
-                    }
-                  >
-                    <NotesIcon />
-                  </IconButton>
-                </Tooltip>
-                <Tooltip title={t("Expedition Github") as string}>
-                  <IconButton
-                    onClick={() =>
-                      window.open("https://github.com/etclabscore/expedition")
-                    }
-                  >
-                    <CodeIcon />
-                  </IconButton>
-                </Tooltip>
-                <ConfigurationMenu onChange={handleConfigurationChange} />
-                <Tooltip title={t("Toggle Dark Mode") as string}>
-                  <IconButton onClick={darkMode.toggle}>
-                    {darkMode.value ? <Brightness3Icon /> : <WbSunnyIcon />}
-                  </IconButton>
-                </Tooltip>
-              </Grid>
-            </Grid>
-          </Toolbar>
-        </AppBar>
+          <div className = 'top-background'></div>
+          <div className = 'logo'></div>
+          <RouterLink className = 'navbutton' activeClassName = 'active' exact to = 'explorer' > Block Explorer </RouterLink>
+          <RouterLink className = 'navbutton' activeClassName = 'active' exact to = '/' id = 'overviewlink'> Overview </RouterLink>       
+
         <div style={{ margin: "0px 25px 0px 25px" }}>
           <QueryParamProvider ReactRouterRoute={Route}>
             <CssBaseline />
+            <Route path={"/explorer"} component={Splash}/>
             <Switch>
-              <Route path={"/"} component={Splash} exact={true} />
+              <Route path={"/"} component={Overview} exact={true} />
+              <Route path={"/explorer"} component={Dashboard} exact={true}/>
               <Route
-                path={"/stats/miners"}
+                path={"/explorer/stats/miners"}
                 component={MinerStatsPage}
                 exact={true}
               />
-              <Route path={"/stats/miners/:block"} component={MinerStatsPage} />
-              <Route path={"/block/:hash/raw"} component={BlockRawContainer} />
-              <Route path={"/block/:hash"} component={Block} />
-              <Route path={"/blocks/:number"} component={NodeView} />
+              <Route path={"/explorer/stats/miners/:block"} component={MinerStatsPage} />
+              <Route path={"/explorer/block/:hash/raw"} component={BlockRawContainer} />
+              <Route path={"/explorer/block/:hash"} component={Block} />
+              <Route path={"/explorer/blocks/:number"} component={NodeView} />
               <Route
-                path={"/tx/:hash/raw"}
+                path={"/explorer/tx/:hash/raw"}
                 component={TransactionRawContainer}
               />
-              <Route path={"/tx/:hash"} component={Transaction} />
-              <Route path={"/address/:address/:block"} component={Address} />
-              <Route path={"/address/:address"} component={Address} />
+              <Route path={"/explorer/tx/:hash"} component={Transaction} />
+              <Route path={"/explorer/address/:address/:block"} component={Address} />
+              <Route path={"/explorer/address/:address"} component={Address} />              
             </Switch>
           </QueryParamProvider>
         </div>

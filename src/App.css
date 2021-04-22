@@ -180,9 +180,25 @@ body {
   position: relative;
 }
 
+#desktop {
+  display: static;
+}
+#mobile {
+  opacity: 0;
+  height: 0;
+  }
+
+  #hash {
+    word-break: break-all;
+    max-width:80vw;
+    min-width: 0px;
+  }
 @media only screen and (max-width:1050px) {
  .upload-cloud-graphic {
        display:none;
+   }
+   #date {
+    width:18ch;
    }
 }
 
@@ -198,6 +214,15 @@ body {
 }
 
 @media only screen and (max-width:630px) {
+#mobile {
+opacity: 1;
+height: auto;
+
+}
+#desktop {
+  display: none;
+}
+
 .navbox-grid {
   grid-template-columns: 100%;
   grid-template-rows: 20rem 1fr 20rem 20rem 1fr 20rem 1rem 1fr 1rem;

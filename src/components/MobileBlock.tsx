@@ -1,7 +1,6 @@
 import * as React from "react";
 import { Link as RouterLink } from "react-router-dom";
 import Link from "@material-ui/core/Link";
-import TxList from "../TxList";
 import { hexToDate, hexToNumber } from "@etclabscore/eserialize";
 import { useTranslation } from "react-i18next";
 import { useHistory } from "react-router-dom";
@@ -16,7 +15,7 @@ import {
   Typography
 } from "@material-ui/core";
 
-function BlockView(props: any) {
+function MobileBlock(props: any) {
   const { block } = props;
   const history = useHistory();
   const { t } = useTranslation();
@@ -29,7 +28,6 @@ function BlockView(props: any) {
     timestamp,
     hash,
     parentHash,
-    transactions,
     gasUsed,
     gasLimit,
     size
@@ -47,8 +45,12 @@ function BlockView(props: any) {
       >
         View Raw
       </Button>
-      <Table>
-        <TableBody>
+      <Table >
+        <TableBody style = {{maxWidth:'50vw'}}>
+            
+          <TableRow>
+            <TableCell colSpan={2}><b>{t("Block")}</b></TableCell>
+          </TableRow>
           <TableRow>
             <TableCell>{t("Number")}</TableCell>
             <TableCell>{hexToNumber(block.number)}</TableCell>
@@ -76,14 +78,20 @@ function BlockView(props: any) {
           </TableRow>
           
           <TableRow>
-            <TableCell>{t("Hash")}</TableCell>
-            <TableCell>{hash}</TableCell>
+            <TableCell colSpan={2}> {t("Hash")}</TableCell>
+          </TableRow>
+
+          <TableRow style = {{maxWidth:'50vw'}}>
+            <TableCell colSpan={2}  id = 'hash'>{hash}</TableCell>
           </TableRow>
 
           <TableRow>
-            <TableCell>{t("ParentHash")}</TableCell>
-            <TableCell>
-              <Link
+            <TableCell colSpan={2}>{t("ParentHash")}</TableCell>
+          </TableRow>
+
+          <TableRow>
+          <TableCell colSpan={2}>
+              <Link 
                 component={({
                   className,
                   children
@@ -91,7 +99,7 @@ function BlockView(props: any) {
                   children: any;
                   className: string;
                 }) => (
-                  <RouterLink className={className} to={`/block/${parentHash}`}>
+                  <RouterLink className={className} to={`/explorer/block/${parentHash}`} id = 'hash'>
                     {children}
                   </RouterLink>
                 )}
@@ -111,14 +119,13 @@ function BlockView(props: any) {
             <TableCell>{hexToNumber(size)}</TableCell>
           </TableRow>
           <TableRow>
-          <TableCell><b>{t("Transactions")}</b></TableCell>
+          <TableCell></TableCell>
           <TableCell></TableCell>
           </TableRow>
         </TableBody>
       </Table>
-        <TxList transactions={transactions} />
     </div>
   );
 }
 
-export default BlockView;
+export default MobileBlock;

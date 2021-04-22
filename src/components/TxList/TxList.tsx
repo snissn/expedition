@@ -13,7 +13,7 @@ function TxListItem({ tx, showblockNumber }: { tx: any, showblockNumber?: boolea
       <TableCell>
         <Link
           component={({ className, children }: { children: any, className: string }) => (
-            <RouterLink className={className} to={`/tx/${tx.hash}`} >
+            <RouterLink className={className} to={`/explorer/tx/${tx.hash}`} >
               {children}
             </RouterLink>
           )}>
@@ -24,7 +24,7 @@ function TxListItem({ tx, showblockNumber }: { tx: any, showblockNumber?: boolea
       <TableCell>
         <Link
           component={({ className, children }: { children: any, className: string }) => (
-            <RouterLink className={className} to={`/address/${tx.from}`} >
+            <RouterLink className={className} to={`/explorer/address/${tx.from}`} >
               {children}
             </RouterLink>
           )}>
@@ -36,7 +36,7 @@ function TxListItem({ tx, showblockNumber }: { tx: any, showblockNumber?: boolea
         {tx.to !== null ?
           <Link
             component={({ className, children }: { children: any, className: string }) => (
-              <RouterLink className={className} to={`/address/${tx.to}`} >
+              <RouterLink className={className} to={`/explorer/address/${tx.to}`} >
                 {children}
               </RouterLink>
             )}>

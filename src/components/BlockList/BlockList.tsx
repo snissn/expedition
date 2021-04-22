@@ -14,6 +14,8 @@ import Link from "@material-ui/core/Link";
 import { hexToDate, hexToNumber } from "@etclabscore/eserialize";
 import { Link as RouterLink } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import BlockView from "../BlockView";
+import MobileBlock from "../MobileBlock";
 
 
 const rightPaddingFix = {
@@ -25,7 +27,7 @@ const rightPaddingFix = {
 const BorderLinearProgress = withStyles({
   root: {
     height: '1rem',
-    width: '19rem',
+    width: '100%',
     backgroundColor: 'white',
     border: '1px solid grey'
   },
@@ -45,7 +47,8 @@ function BlockList({ blocks }: any) {
     }
   );
   return (
-    <div style={{ width: "100%", overflowX: "auto" }}>
+    <>
+    <div style={{ width: "100%", overflowX: "visible" }} id = 'desktop'>
       <Table>
         <TableHead>
           <TableRow>
@@ -82,10 +85,7 @@ function BlockList({ blocks }: any) {
 
             // Colorize left border derived from author credit account.
             const authorHashStyle = {
-              borderTop: `0.3em solid #${b.miner.substring(2, 8)}`,
-              borderBottom: `0.3em solid #${b.miner.substring(2, 8)}`,
-              borderLeft: `0.6em solid #${b.miner.substring(2, 8)}`,
-              borderRight: `0.6em solid #${b.miner.substring(2, 8)}`,
+              border: `0.3em solid #${b.miner.substring(2, 8)}`,
               fontWeight: 6000
             };
 
@@ -113,7 +113,7 @@ function BlockList({ blocks }: any) {
             return (
               <>
               <TableRow key={b.number} style={authorHashStyle}>
-                <TableCell component="th" scope="row" style = {{fontSize :'1.5rem'}}>
+                <TableCell component="th" scope="row" style = {{fontWeight: 600, fontSize :'1.5rem'}}>
                   <Link
                     component={({
                       className,
@@ -122,7 +122,7 @@ function BlockList({ blocks }: any) {
                       children: any;
                       className: string;
                     }) => (
-                      <RouterLink className={className} style = {{fontWeight: 600, fontSize: '1.5rem'}} to={`/block/${b.hash}`}>
+                      <RouterLink className={className} style = {{fontWeight: 600, fontSize: '1.5rem'}} to={`/explorer/block/${b.hash}`}>
                         {children}
                       </RouterLink>
                     )}
@@ -131,7 +131,7 @@ function BlockList({ blocks }: any) {
                   </Link>
                 </TableCell>
                 <TableCell style={rightPaddingFix}>
-                  <Typography  style = {{fontWeight: 600, fontSize: '1.5rem'}}>
+                  <Typography  style = {{fontWeight: 600, fontSize: '1.5rem'}} id = 'date'>
                     {t("Timestamp Date", { date: hexToDate(b.timestamp) })}
                     &nbsp;
                     <sub>
@@ -173,7 +173,7 @@ function BlockList({ blocks }: any) {
                       children: any;
                       className: string;
                     }) => (
-                      <RouterLink className={className}  style = {{fontWeight: 600, fontSize: '1.5rem', color: '#0528F2',}}  to={`/block/${b.hash}`}>
+                      <RouterLink className={className}  style = {{fontWeight: 600, fontSize: '1.5rem', color: '#0528F2',}}  to={`/explorer/block/${b.hash}`}>
                         {children}
                       </RouterLink>
                     )}
@@ -189,6 +189,11 @@ function BlockList({ blocks }: any) {
         </TableBody>
       </Table>
     </div>
+    <div style={{ width: "100%", overflowX: "auto" }} id = 'mobile'>
+    {sortedBlocks.map((block: any, index: number) =>  { return (<MobileBlock block={block} />)})};
+
+    </div>
+    </>
   );
 }
 

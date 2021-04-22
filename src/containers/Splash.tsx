@@ -195,7 +195,7 @@ const [selectedNetwork, setSelectedNetworkState] = useState();
 
 
     </div>
-    <div className = 'wedge' style = {{height: '65rem', minHeight:'50vh'}}></div>
+    <div className = 'wedge' id = 'explorer-wedge' style = {{ minHeight:'50vh'}}></div>
     </>
   )
 }

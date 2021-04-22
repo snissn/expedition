@@ -213,15 +213,18 @@ body {
 }
 }
 
-@media only screen and (max-width:630px) {
-#mobile {
-opacity: 1;
-height: auto;
+@media only screen and (max-width:680px) {
+  #mobile {
+  opacity: 1;
+  height: auto;
+  
+  }
+  #desktop {
+    display: none;
+  }
+}
 
-}
-#desktop {
-  display: none;
-}
+@media only screen and (max-width:630px) {
 
 .navbox-grid {
   grid-template-columns: 100%;

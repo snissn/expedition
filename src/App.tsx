@@ -239,11 +239,12 @@ function App(props: any) {
 
         <div style={{ margin: "0px 25px 0px 25px" }}>
           <QueryParamProvider ReactRouterRoute={Route}>
-            <CssBaseline />
-            <Route path={"/explorer"} component={Splash}/>
+            <CssBaseline />            
+            <Route path={"/explorer"} component={Splash} exact = {true}/>              
             <Switch>
-              <Route path={"/"} component={Overview} exact={true} />
+              
               <Route path={"/explorer"} component={Dashboard} exact={true}/>
+              <Route path={"/"} component={Overview} exact={true} />
               <Route
                 path={"/explorer/stats/miners"}
                 component={MinerStatsPage}

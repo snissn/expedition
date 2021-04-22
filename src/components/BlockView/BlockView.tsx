@@ -36,9 +36,10 @@ function BlockView(props: any) {
   } = block;
 
   const filledPercent = (hexToNumber(gasUsed) / hexToNumber(gasLimit)) * 100;
-
+  const FontStyle = {fontWeight: 600, fontSize: '1.5rem'};
   return (
     <div>
+            <div style = {{height: '20rem'}} />
       <Button
         onClick={() => {
           history.push(`/block/${block.hash}/raw`);
@@ -50,14 +51,14 @@ function BlockView(props: any) {
       <Table>
         <TableBody>
           <TableRow>
-            <TableCell>{t("Number")}</TableCell>
-            <TableCell>{hexToNumber(block.number)}</TableCell>
+            <TableCell style = {FontStyle}>{t("Number")}</TableCell>
+            <TableCell style = {FontStyle}>{hexToNumber(block.number)}</TableCell>
           </TableRow>
 
           <TableRow>
-            <TableCell>{t("Gas Usage")}</TableCell>
-            <TableCell>
-              <Typography variant="caption">
+            <TableCell style = {FontStyle}>{t("Gas Usage")}</TableCell>
+            <TableCell >
+              <Typography style = {FontStyle} variant="caption">
                 {hexToNumber(gasUsed)}/{hexToNumber(gasLimit)}
               </Typography>
               <LinearProgress
@@ -69,19 +70,19 @@ function BlockView(props: any) {
           </TableRow>
 
           <TableRow>
-            <TableCell>{t("Timestamp")}</TableCell>
-            <TableCell>
+            <TableCell style = {FontStyle}>{t("Timestamp")}</TableCell>
+            <TableCell style = {FontStyle}>
               {t("Timestamp Date", { date: hexToDate(timestamp) })}
             </TableCell>
           </TableRow>
           
           <TableRow>
-            <TableCell>{t("Hash")}</TableCell>
-            <TableCell>{hash}</TableCell>
+            <TableCell style = {FontStyle}>{t("Hash")}</TableCell>
+            <TableCell style = {FontStyle}>{hash}</TableCell>
           </TableRow>
 
           <TableRow>
-            <TableCell>{t("ParentHash")}</TableCell>
+            <TableCell style = {FontStyle}>{t("ParentHash")}</TableCell>
             <TableCell>
               <Link
                 component={({
@@ -91,7 +92,7 @@ function BlockView(props: any) {
                   children: any;
                   className: string;
                 }) => (
-                  <RouterLink className={className} to={`/block/${parentHash}`}>
+                  <RouterLink style = {FontStyle} className={className} to={`/explorer/block/${parentHash}`}>
                     {children}
                   </RouterLink>
                 )}
@@ -102,16 +103,16 @@ function BlockView(props: any) {
           </TableRow>
 
           <TableRow>
-            <TableCell>{t("Gas Limit")}</TableCell>
-            <TableCell>{hexToNumber(gasLimit)}</TableCell>
+            <TableCell style = {FontStyle}>{t("Gas Limit")}</TableCell>
+            <TableCell style = {FontStyle}>{hexToNumber(gasLimit)}</TableCell>
           </TableRow>
 
           <TableRow>
-            <TableCell>{t("Size")}</TableCell>
-            <TableCell>{hexToNumber(size)}</TableCell>
+            <TableCell style = {FontStyle}>{t("Size")}</TableCell>
+            <TableCell style = {FontStyle}>{hexToNumber(size)}</TableCell>
           </TableRow>
           <TableRow>
-          <TableCell><b>{t("Transactions")}</b></TableCell>
+          <TableCell style = {FontStyle}><b>{t("Transactions")}</b></TableCell>
           <TableCell></TableCell>
           </TableRow>
         </TableBody>

@@ -34,32 +34,33 @@ function MobileBlock(props: any) {
   } = block;
 
   const filledPercent = (hexToNumber(gasUsed) / hexToNumber(gasLimit)) * 100;
+  const FontStyle = {fontWeight: 600, fontSize: '1.3rem'};
 
   return (
     <div>
       <Button
         onClick={() => {
-          history.push(`/block/${block.hash}/raw`);
+          history.push(`/explorer/block/${block.hash}/raw`);
         }}
         style={{ position: "absolute", right: "10px", top: "75px" }}
       >
         View Raw
       </Button>
-      <Table >
+      <Table style = {FontStyle}>
         <TableBody style = {{maxWidth:'50vw'}}>
             
           <TableRow>
-            <TableCell colSpan={2}><b>{t("Block")}</b></TableCell>
+            <TableCell style = {FontStyle} colSpan={2}><b>{t("Block")}</b></TableCell>
           </TableRow>
           <TableRow>
-            <TableCell>{t("Number")}</TableCell>
-            <TableCell>{hexToNumber(block.number)}</TableCell>
+            <TableCell style = {FontStyle}>{t("Number")}</TableCell>
+            <TableCell style = {FontStyle}>{hexToNumber(block.number)}</TableCell>
           </TableRow>
 
           <TableRow>
-            <TableCell>{t("Gas Usage")}</TableCell>
+            <TableCell style = {FontStyle}>{t("Gas Usage")}</TableCell>
             <TableCell>
-              <Typography variant="caption">
+              <Typography style = {FontStyle} variant="caption">
                 {hexToNumber(gasUsed)}/{hexToNumber(gasLimit)}
               </Typography>
               <LinearProgress
@@ -71,22 +72,22 @@ function MobileBlock(props: any) {
           </TableRow>
 
           <TableRow>
-            <TableCell>{t("Timestamp")}</TableCell>
-            <TableCell>
+            <TableCell style = {FontStyle}>{t("Timestamp")}</TableCell>
+            <TableCell style = {FontStyle}>
               {t("Timestamp Date", { date: hexToDate(timestamp) })}
             </TableCell>
           </TableRow>
           
           <TableRow>
-            <TableCell colSpan={2}> {t("Hash")}</TableCell>
+            <TableCell style = {FontStyle} colSpan={2}> {t("Hash")}</TableCell>
           </TableRow>
 
           <TableRow style = {{maxWidth:'50vw'}}>
-            <TableCell colSpan={2}  id = 'hash'>{hash}</TableCell>
+            <TableCell style = {FontStyle} colSpan={2}  id = 'hash'>{hash}</TableCell>
           </TableRow>
 
           <TableRow>
-            <TableCell colSpan={2}>{t("ParentHash")}</TableCell>
+            <TableCell style = {FontStyle} colSpan={2}>{t("ParentHash")}</TableCell>
           </TableRow>
 
           <TableRow>
@@ -99,7 +100,7 @@ function MobileBlock(props: any) {
                   children: any;
                   className: string;
                 }) => (
-                  <RouterLink className={className} to={`/explorer/block/${parentHash}`} id = 'hash'>
+                  <RouterLink style = {FontStyle} className={className} to={`/explorer/block/${parentHash}`} id = 'hash'>
                     {children}
                   </RouterLink>
                 )}
@@ -110,13 +111,13 @@ function MobileBlock(props: any) {
           </TableRow>
 
           <TableRow>
-            <TableCell>{t("Gas Limit")}</TableCell>
-            <TableCell>{hexToNumber(gasLimit)}</TableCell>
+            <TableCell style = {FontStyle}>{t("Gas Limit")}</TableCell>
+            <TableCell style = {FontStyle}>{hexToNumber(gasLimit)}</TableCell>
           </TableRow>
 
           <TableRow>
-            <TableCell>{t("Size")}</TableCell>
-            <TableCell>{hexToNumber(size)}</TableCell>
+            <TableCell style = {FontStyle}>{t("Size")}</TableCell>
+            <TableCell style = {FontStyle}>{hexToNumber(size)}</TableCell>
           </TableRow>
           <TableRow>
           <TableCell></TableCell>

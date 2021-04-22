@@ -46,6 +46,8 @@ function BlockList({ blocks }: any) {
       return b.number - a.number;
     }
   );
+  const FontStyle = {fontWeight: 600, fontSize: '1.5rem'};
+
   return (
     <>
     <div style={{ width: "100%", overflowX: "visible" }} id = 'desktop'>
@@ -53,22 +55,22 @@ function BlockList({ blocks }: any) {
         <TableHead>
           <TableRow>
             <TableCell>
-              <Typography style = {{fontWeight: 600, fontSize: '1.5rem'}} >{t("Block Number")}</Typography>
+              <Typography style = {FontStyle} >{t("Block Number")}</Typography>
             </TableCell>
             <TableCell>
-              <Typography style = {{fontWeight: 600, fontSize: '1.5rem'}} >{t("Timestamp")}</Typography>
+              <Typography style = {FontStyle} >{t("Timestamp")}</Typography>
             </TableCell>
             <TableCell>
-              <Typography style = {{fontWeight: 600, fontSize: '1.5rem'}} >{t("#Txs")}</Typography>
+              <Typography style = {FontStyle} >{t("#Txs")}</Typography>
             </TableCell>
             <TableCell>
-              <Typography style = {{fontWeight: 600, fontSize: '1.5rem'}} >{t("Gas Usage")}</Typography>
+              <Typography style = {FontStyle} >{t("Gas Usage")}</Typography>
             </TableCell>
             <TableCell>
-              <Typography style = {{fontWeight: 600, fontSize: '1.5rem'}} >{t("Gas Limit")}</Typography>
+              <Typography style = {FontStyle} >{t("Gas Limit")}</Typography>
             </TableCell>
             <TableCell>
-              <Typography style = {{fontWeight: 600, fontSize: '1.5rem'}} >{t("Hash")}</Typography>
+              <Typography style = {FontStyle} >{t("Hash")}</Typography>
             </TableCell>
           </TableRow>
         </TableHead>
@@ -110,10 +112,12 @@ function BlockList({ blocks }: any) {
                 : hexToNumber(b.timestamp) -
                   hexToNumber(sortedBlocks[index + 1].timestamp);
 
+            const FontStyle = {fontWeight: 600, fontSize: '1.5rem'};
+            
             return (
               <>
               <TableRow key={b.number} style={authorHashStyle}>
-                <TableCell component="th" scope="row" style = {{fontWeight: 600, fontSize :'1.5rem'}}>
+                <TableCell component="th" scope="row" style = {FontStyle}>
                   <Link
                     component={({
                       className,
@@ -122,7 +126,7 @@ function BlockList({ blocks }: any) {
                       children: any;
                       className: string;
                     }) => (
-                      <RouterLink className={className} style = {{fontWeight: 600, fontSize: '1.5rem'}} to={`/explorer/block/${b.hash}`}>
+                      <RouterLink className={className} style = {FontStyle} to={`/explorer/block/${b.hash}`}>
                         {children}
                       </RouterLink>
                     )}
@@ -131,7 +135,7 @@ function BlockList({ blocks }: any) {
                   </Link>
                 </TableCell>
                 <TableCell style={rightPaddingFix}>
-                  <Typography  style = {{fontWeight: 600, fontSize: '1.5rem'}} id = 'date'>
+                  <Typography  style = {FontStyle} id = 'date'>
                     {t("Timestamp Date", { date: hexToDate(b.timestamp) })}
                     &nbsp;
                     <sub>
@@ -144,7 +148,7 @@ function BlockList({ blocks }: any) {
                   </Typography>
                 </TableCell>
                 <TableCell style={rightPaddingFix} >
-                  <Tooltip 
+                  <Tooltip style = {FontStyle}
                     title={
                       t("Create Transactions", {
                         count: txTypes.create
@@ -152,17 +156,17 @@ function BlockList({ blocks }: any) {
                     }
                     placement="top"
                   >
-                    <Typography  style = {{fontWeight: 600, fontSize: '1.5rem'}} variant="caption" color="textSecondary">
+                    <Typography  style = {FontStyle} variant="caption" color="textSecondary">
                       {txTypes.create === 0 ? "" : txTypes.create}
                     </Typography>
                   </Tooltip>
-                  <Typography  style = {{fontWeight: 600, fontSize: '1.5rem'}}>{txTypes.transact}</Typography>
+                  <Typography  style = {FontStyle}>{txTypes.transact}</Typography>
                 </TableCell>
                 <TableCell style={rightPaddingFix}>
                   <BorderLinearProgress value={filledPercent} variant="determinate" />
                 </TableCell>
                 <TableCell>
-                  <Typography  style = {{fontWeight: 600, fontSize: '1.5rem'}}>{hexToNumber(b.gasLimit)}</Typography>
+                  <Typography  style = {FontStyle}>{hexToNumber(b.gasLimit)}</Typography>
                 </TableCell>
                 <TableCell style={rightPaddingFix}>
                   <Link
@@ -173,7 +177,7 @@ function BlockList({ blocks }: any) {
                       children: any;
                       className: string;
                     }) => (
-                      <RouterLink className={className}  style = {{fontWeight: 600, fontSize: '1.5rem', color: '#0528F2',}}  to={`/explorer/block/${b.hash}`}>
+                      <RouterLink className={className}  style = {{fontWeight: 600, fontSize: '2rem', color: '#0528F2',}}  to={`/explorer/block/${b.hash}`}>
                         {children}
                       </RouterLink>
                     )}

@@ -23,9 +23,10 @@ function TxView(props: ITxViewProps) {
 
   return (
     <div>
+      <div style = {{height: '20rem'}} />
       <Button
         onClick={() => {
-          history.push(`/tx/${tx.hash}/raw`);
+          history.push(`/explorer/tx/${tx.hash}/raw`);
         }}
         style={{ position: "absolute", right: "10px", top: "75px" }}
       >View Raw</Button>
@@ -42,7 +43,7 @@ function TxView(props: ITxViewProps) {
             <TableCell>
               <Link
                 component={({ className, children }: { children: any, className: string }) => (
-                  <RouterLink className={className} to={`/block/${tx.blockHash}`} >
+                  <RouterLink className={className} to={`/explorer/block/${tx.blockHash}`} >
                     {children}
                   </RouterLink>
                 )}>
@@ -76,7 +77,7 @@ function TxView(props: ITxViewProps) {
             <TableCell>
               <Link
                 component={({ className, children }: { children: any, className: string }) => (
-                  <RouterLink className={className} to={`/address/${tx.from}`} >
+                  <RouterLink className={className} to={`/explorer/address/${tx.from}`} >
                     {children}
                   </RouterLink>
                 )}>

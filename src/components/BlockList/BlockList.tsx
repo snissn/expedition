@@ -6,7 +6,8 @@ import {
   TableRow,
   Typography,
   LinearProgress,
-  Tooltip
+  Tooltip,
+  makeStyles, withStyles, lighten
 } from "@material-ui/core";
 import * as React from "react";
 import Link from "@material-ui/core/Link";
@@ -14,9 +15,24 @@ import { hexToDate, hexToNumber } from "@etclabscore/eserialize";
 import { Link as RouterLink } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
+
 const rightPaddingFix = {
-  paddingRight: "24px"
+  paddingRight: "24px",
+  fontWeight: 6000
+
 };
+
+const BorderLinearProgress = withStyles({
+  root: {
+    height: '1rem',
+    width: '19rem',
+    backgroundColor: 'white',
+    border: '1px solid grey'
+  },
+  bar: {
+    backgroundColor: '#0528F2',
+  },
+})(LinearProgress);
 
 function BlockList({ blocks }: any) {
   const { t } = useTranslation();
@@ -34,22 +50,22 @@ function BlockList({ blocks }: any) {
         <TableHead>
           <TableRow>
             <TableCell>
-              <Typography>{t("Block Number")}</Typography>
+              <Typography style = {{fontWeight: 600, fontSize: '1.5rem'}} >{t("Block Number")}</Typography>
             </TableCell>
             <TableCell>
-              <Typography>{t("Timestamp")}</Typography>
+              <Typography style = {{fontWeight: 600, fontSize: '1.5rem'}} >{t("Timestamp")}</Typography>
             </TableCell>
             <TableCell>
-              <Typography>{t("#Txs")}</Typography>
+              <Typography style = {{fontWeight: 600, fontSize: '1.5rem'}} >{t("#Txs")}</Typography>
             </TableCell>
             <TableCell>
-              <Typography>{t("Gas Usage")}</Typography>
+              <Typography style = {{fontWeight: 600, fontSize: '1.5rem'}} >{t("Gas Usage")}</Typography>
             </TableCell>
             <TableCell>
-              <Typography>{t("Gas Limit")}</Typography>
+              <Typography style = {{fontWeight: 600, fontSize: '1.5rem'}} >{t("Gas Limit")}</Typography>
             </TableCell>
             <TableCell>
-              <Typography>{t("Hash")}</Typography>
+              <Typography style = {{fontWeight: 600, fontSize: '1.5rem'}} >{t("Hash")}</Typography>
             </TableCell>
           </TableRow>
         </TableHead>
@@ -66,7 +82,11 @@ function BlockList({ blocks }: any) {
 
             // Colorize left border derived from author credit account.
             const authorHashStyle = {
-              borderLeft: `1em solid #${b.miner.substring(2, 8)}`
+              borderTop: `0.3em solid #${b.miner.substring(2, 8)}`,
+              borderBottom: `0.3em solid #${b.miner.substring(2, 8)}`,
+              borderLeft: `0.6em solid #${b.miner.substring(2, 8)}`,
+              borderRight: `0.6em solid #${b.miner.substring(2, 8)}`,
+              fontWeight: 6000
             };
 
             // Tally transactions which create contracts vs transactions with addresses.
@@ -91,8 +111,9 @@ function BlockList({ blocks }: any) {
                   hexToNumber(sortedBlocks[index + 1].timestamp);
 
             return (
+              <>
               <TableRow key={b.number} style={authorHashStyle}>
-                <TableCell component="th" scope="row">
+                <TableCell component="th" scope="row" style = {{fontSize :'1.5rem'}}>
                   <Link
                     component={({
                       className,
@@ -101,7 +122,7 @@ function BlockList({ blocks }: any) {
                       children: any;
                       className: string;
                     }) => (
-                      <RouterLink className={className} to={`/block/${b.hash}`}>
+                      <RouterLink className={className} style = {{fontWeight: 600, fontSize: '1.5rem'}} to={`/block/${b.hash}`}>
                         {children}
                       </RouterLink>
                     )}
@@ -110,7 +131,7 @@ function BlockList({ blocks }: any) {
                   </Link>
                 </TableCell>
                 <TableCell style={rightPaddingFix}>
-                  <Typography>
+                  <Typography  style = {{fontWeight: 600, fontSize: '1.5rem'}}>
                     {t("Timestamp Date", { date: hexToDate(b.timestamp) })}
                     &nbsp;
                     <sub>
@@ -122,8 +143,8 @@ function BlockList({ blocks }: any) {
                     </sub>
                   </Typography>
                 </TableCell>
-                <TableCell style={rightPaddingFix}>
-                  <Tooltip
+                <TableCell style={rightPaddingFix} >
+                  <Tooltip 
                     title={
                       t("Create Transactions", {
                         count: txTypes.create
@@ -131,17 +152,17 @@ function BlockList({ blocks }: any) {
                     }
                     placement="top"
                   >
-                    <Typography variant="caption" color="textSecondary">
+                    <Typography  style = {{fontWeight: 600, fontSize: '1.5rem'}} variant="caption" color="textSecondary">
                       {txTypes.create === 0 ? "" : txTypes.create}
                     </Typography>
                   </Tooltip>
-                  <Typography>{txTypes.transact}</Typography>
+                  <Typography  style = {{fontWeight: 600, fontSize: '1.5rem'}}>{txTypes.transact}</Typography>
                 </TableCell>
                 <TableCell style={rightPaddingFix}>
-                  <LinearProgress value={filledPercent} variant="determinate" />
+                  <BorderLinearProgress value={filledPercent} variant="determinate" />
                 </TableCell>
                 <TableCell>
-                  <Typography>{hexToNumber(b.gasLimit)}</Typography>
+                  <Typography  style = {{fontWeight: 600, fontSize: '1.5rem'}}>{hexToNumber(b.gasLimit)}</Typography>
                 </TableCell>
                 <TableCell style={rightPaddingFix}>
                   <Link
@@ -152,7 +173,7 @@ function BlockList({ blocks }: any) {
                       children: any;
                       className: string;
                     }) => (
-                      <RouterLink className={className} to={`/block/${b.hash}`}>
+                      <RouterLink className={className}  style = {{fontWeight: 600, fontSize: '1.5rem', color: '#0528F2',}}  to={`/block/${b.hash}`}>
                         {children}
                       </RouterLink>
                     )}
@@ -161,6 +182,8 @@ function BlockList({ blocks }: any) {
                   </Link>
                 </TableCell>
               </TableRow>
+              <div style  = {{height:'2rem'}}/>
+              </>
             );
           })}
         </TableBody>

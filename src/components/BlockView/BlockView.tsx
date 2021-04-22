@@ -112,7 +112,7 @@ function BlockView(props: any) {
             <TableCell style = {FontStyle}>{hexToNumber(size)}</TableCell>
           </TableRow>
           <TableRow>
-          <TableCell style = {FontStyle}><b>{t("Transactions")}</b></TableCell>
+          <TableCell style = {FontStyle}><b style = {FontStyle}>{t("Transactions")}</b></TableCell>
           <TableCell></TableCell>
           </TableRow>
         </TableBody>

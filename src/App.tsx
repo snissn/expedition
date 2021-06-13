@@ -68,7 +68,7 @@ function App(props: any) {
   const { t } = useTranslation();
   const darkMode = useDarkMode();
   const [search, setSearch] = useState();
-  const theme = darkMode.value ? darkTheme : lightTheme;
+  const theme =  lightTheme;
 
   const [selectedNetwork, setSelectedNetworkState] = useState();
   const [

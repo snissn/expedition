@@ -22,6 +22,7 @@ body {
 
 .top-background {
   position: absolute;
+  z-index:-1;
   top: -30vw;
   left:-10vh;
   width:150vw;

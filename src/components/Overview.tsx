@@ -15,7 +15,7 @@ export default function Overview() {
     <div className = 'wedge'></div>
     <div className = 'value-proposition-background'> 
         <div className = 'centering-container'>
-            <h1 className = 'value-proposition-title'> The Problem, Solved </h1>
+            <h1 className = 'value-proposition-title'> Problem Solved </h1>
             <p className = 'value-proposition-body'> Blockchain apps require expert developers and expensive fees. 
                                                  Token host’s cloud-hosted blockchains solve common developer pain points like 
                                                  user authentication, key management, expensive fees paid for by end users and long transaction times.

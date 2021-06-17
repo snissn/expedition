@@ -9,7 +9,7 @@ export default function Overview() {
 <div className = 'container'>
     <h1 className = "title"> EASILY BUILD BLOCKCHAIN APPS. FREE OF CHARGE. </h1>
     <h2 className = 'body'>Token Host makes building blockchain apps easier, faster, and cheaper with a familiar cloud-based dev platform. </h2>
-    <a className = 'calltoaction'> <p> Start Building</p> </a>
+    <a href = "https://app.tokenhost.com" className = 'calltoaction'> <p> Start Building</p> </a>
     <div className = 'upload-cloud-graphic'></div>
 
     <div className = 'wedge'></div>

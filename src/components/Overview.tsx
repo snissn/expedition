@@ -84,7 +84,7 @@ export default function Overview() {
 
     <div className = 'contact'>
         <div className = 'section'>
-            <a className = 'discord'></a>
+            <a href = "https://discord.gg/4Z3gngR9Ha" target = "_blank" className = 'discord'></a>
         </div>
         <div className =  'section'>
             <div className = 'contact-title'> Stay Up To Date: </div>

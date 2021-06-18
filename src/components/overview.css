@@ -486,7 +486,7 @@
         opacity: 1;
     }
 
-   .overview .contact-email {
+   .overview input, .overview .contact-email{
         position: relative;
         top: 4.5rem;
         left: 0;
@@ -507,7 +507,7 @@
         color: #001131;
         opacity: 1;
     }
-    .overview .contact-email ::placeholder {
+    .overview input ::placeholder, .overview .contact-email ::placeholder {
         font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-bold) var(--unnamed-font-size-28)/var(--unnamed-line-spacing-34) Montserrat;
         letter-spacing: var(--unnamed-character-spacing-0);
         color: var(--not-black-001131);
@@ -516,10 +516,13 @@
         color: #001131;
         opacity: 1;
     }
-
-   .overview .linkbutton {
-        position: relative;
-        margin-top: 6.625rem;
+    .overview div div{
+        position:static;
+    }
+   .overview button, .overview .link-button {
+       
+        position: static;
+        margin-top: 3rem;
         margin-left: 12rem;
         top: 6.625rem;
         left: 12rem;
@@ -993,7 +996,7 @@
             margin-top: 0;
             top:0;
         }
-       .overview .contact-email {
+       .overview input,  .overview .contact-email {
             position: static;
             display: block;
             margin:auto;

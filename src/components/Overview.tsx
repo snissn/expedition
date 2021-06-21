@@ -1,6 +1,9 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import './overview.css'
+import MailchimpSubscribe from "react-mailchimp-subscribe"
+
+const mailchimpurl = "https://tokenhost.us6.list-manage.com/subscribe/post?u=d772b81b2c6ca565ad1fb7bff&amp;id=4e4a1b90b9";
 
 export default function Overview() {
     return (
@@ -88,8 +91,9 @@ export default function Overview() {
         </div>
         <div className =  'section'>
             <div className = 'contact-title'> Stay Up To Date: </div>
-            <input placeholder = 'Email' type = 'email' className = 'contact-email' />
-            <button className = 'linkbutton' id = 'contact' style = {{position: 'static'}}> Sign Up</button>
+						<div className="MailChimp">
+										<MailchimpSubscribe url={mailchimpurl}/>
+						</div>
         </div>
     </div>
 

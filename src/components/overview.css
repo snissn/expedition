@@ -565,7 +565,7 @@
         height:70rem;
     }
     .overview #token {
-        top: 3.375rem;
+        top: 5.375rem;
         left: 21.375rem;
         width: 25.375rem;
         margin:0;
@@ -712,7 +712,7 @@
     }
 
    .overview .footer-title {
-        position:absolute;
+        position:relative;
         top: 4.875rem;
         left: 21.24vw;
         width: 34rem;
@@ -779,10 +779,10 @@
 
     @media only screen and  (max-width:1100px) {
        .overview .footer-graphic {
-            left:40rem;
+            left:80%;
         }
        .overview .footer-title {
-            left:4rem;
+            left:25%;
         }
         #footer {
             left:27rem;
@@ -1115,6 +1115,20 @@
        .overview .value-proposition-subtitle {
             font-size:2.9rem;
         }
+
+        
+        
+    }
+
+    @media only screen and (max-width:630px){
+        .overview .footer-graphic {
+            width: 7.40625rem;
+            height: 7.375rem;
+        }
+
+        .overview .footer-title {
+            left:10%;
+        }
     }
 
     @media only screen and (max-width:550px) {
@@ -1134,10 +1148,9 @@
        .overview .github-body {
             left:2rem;
         }
+        
 
-       .overview .footer-graphic {
-            display: none;
-        }
+       
 
     }
 

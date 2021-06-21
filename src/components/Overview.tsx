@@ -106,7 +106,7 @@ export default function Overview() {
         </div>            
 
         <div className = 'examples-graphic'></div>        
-        <div className = 'linkbutton' id = 'token'> Explore Token Tweets </div>
+        <a href = 'https://twitter.tokenhost.com' target ='_button'className = 'linkbutton' id = 'token'> Explore Token Tweets </a>
     </div>
 
     <div className = 'github'>
@@ -120,7 +120,7 @@ export default function Overview() {
 
     <div className = 'footer'>    
         <div className = 'footer-title'>Start Building</div>
-        <a className = 'linkbutton' id = 'footer'> Let's Go! </a>
+        <a href = "https://app.tokenhost.com"  target = "_blank" className = 'linkbutton' id = 'footer'> Let's Go! </a>
         <div className = 'footer-graphic'></div>
     </div>
 </div>        

@@ -91,7 +91,9 @@ export default function Overview() {
         </div>
         <div className =  'section'>
             <div className = 'contact-title'> Stay Up To Date: </div>
-            <MailchimpSubscribe url={mailchimpurl}/>
+						<div className="MailChimp">
+										<MailchimpSubscribe url={mailchimpurl}/>
+						</div>
         </div>
     </div>
 

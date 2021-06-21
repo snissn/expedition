@@ -486,7 +486,7 @@
         opacity: 1;
     }
 
-   .overview input, .overview .contact-email{
+   .overview .contact-email, .MailChimp input {
         position: relative;
         top: 4.5rem;
         left: 0;
@@ -507,7 +507,10 @@
         color: #001131;
         opacity: 1;
     }
-    .overview input ::placeholder, .overview .contact-email ::placeholder {
+    .MailChimp input {
+			top: 1rem;
+		}
+    .MailChimp input ::placeholder , .overview .contact-email ::placeholder {
         font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-bold) var(--unnamed-font-size-28)/var(--unnamed-line-spacing-34) Montserrat;
         letter-spacing: var(--unnamed-character-spacing-0);
         color: var(--not-black-001131);
@@ -516,13 +519,15 @@
         color: #001131;
         opacity: 1;
     }
-    .overview div div{
-        position:static;
-    }
-   .overview button, .overview .link-button {
-       
-        position: static;
-        margin-top: 3rem;
+
+		.MailChimp, .MailChimp > div > div {
+						margin-top:46px;
+						text-align:center;
+		}
+
+   .overview .linkbutton, .MailChimp button {
+        position: relative;
+        margin-top: 6.625rem;
         margin-left: 12rem;
         top: 6.625rem;
         left: 12rem;
@@ -546,6 +551,11 @@
         border: 3px solid #0528F2;
 
     }
+    .MailChimp button {
+			margin-top:0;
+			left:0;
+			top: 2rem;
+		}
     
    .overview .examples {
         position:relative;
@@ -996,7 +1006,18 @@
             margin-top: 0;
             top:0;
         }
-       .overview input,  .overview .contact-email {
+
+				.MailChimp button {
+						display: block;
+						margin: 0 auto auto;
+				}
+       .MailChimp input{
+            position: static;
+            display: block;
+            margin:auto;
+            width:30rem;
+        }
+       .overview .contact-email {
             position: static;
             display: block;
             margin:auto;

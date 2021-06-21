@@ -522,6 +522,8 @@
 
 		.MailChimp, .MailChimp > div > div {
 						margin-top:46px;
+		}
+		 .MailChimp > div > div {
 						text-align:center;
 		}
 

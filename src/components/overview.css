@@ -84,9 +84,9 @@
         position: absolute;
         top: 54.125rem;
         left: 14.5rem;
-        width: 18.125rem;
-        height: 4rem;
-        background: #FFD338 0% 0% no-repeat padding-box;
+        width: 49.125rem;
+        height: 9rem;
+        background: #0528F2 0% 0% no-repeat padding-box;
         color:white;
         line-height: 2rem;
         padding:1rem 0;
@@ -96,11 +96,11 @@
 
    .overview .calltoaction p {
         margin-top:0;
-        padding-top:0;
+        padding-top:25;
         font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-bold) var(--unnamed-font-size-28)/var(--unnamed-line-spacing-34) Montserrat;
         letter-spacing: var(--unnamed-character-spacing-0);
         text-align: center;
-        font: normal normal bold 1.75rem/2.125rem Montserrat;
+        font: normal normal bold 3.75rem/2.125rem Montserrat;
         letter-spacing: 0rem;
         color: #FFFFFF;
         opacity: 1;

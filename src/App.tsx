@@ -234,8 +234,8 @@ function App(props: any) {
       <ThemeProvider theme={theme}>
           <div className = 'top-background'></div>
           <div className = 'logo'></div>
-          <RouterLink className = 'navbutton' activeClassName = 'active' exact to = 'explorer' > Block Explorer </RouterLink>
-          <a className = 'navbutton' activeClassName = 'active' href = 'https://app.tokenhost.com' id = 'AppBuilder'> App Builder </a>
+          <RouterLink className = 'navbutton' activeClassName = 'active' exact to = 'explorer' id = "explorer"> Block Explorer </RouterLink>
+          <a className = 'navbutton' href = 'https://app.tokenhost.com' id = 'AppBuilder'> App Builder </a>
           <RouterLink className = 'navbutton' activeClassName = 'active' exact to = '/' id = 'overviewlink'> Overview </RouterLink>       
        
 

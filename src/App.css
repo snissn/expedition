@@ -70,7 +70,7 @@ body {
 }
 
 #overviewlink {
-  right: 26rem;
+  right: 37.5rem;
 }
 .active {
   color: #0528F2;
@@ -166,6 +166,15 @@ body {
 
 #explorer-wedge {
   height: 65rem;
+  right: 20rem;
+}
+
+#explorer{
+  right: 10rem;
+}
+
+#AppBuilder {
+  right: 25rem;
 }
 
 .mobile-container {
@@ -201,13 +210,36 @@ body {
    #date {
     width:18ch;
    }
+   
+  .navbutton{
+    top: 130px;
+  }
+
+  #explorer{
+    /* left: 32.75rem; */
+    left: 24rem;
+  }
+
+  #AppBuilder{
+    /* left: 20.75rem; */
+    left: 12rem;
+  }
+
+  #overviewlink{
+    /* left: 10.75rem; */
+    left: 2rem;
+  }
+
+  .logo {
+    left:2rem;
+    max-width: 93vw;
+  }
+
+  
 }
 
 @media only screen and (max-width:800px){
-.logo {
-  left:1rem;
-  max-width: 93vw;
-}
+
 
 .navbutton {
   top:13rem;

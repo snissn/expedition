@@ -235,7 +235,9 @@ function App(props: any) {
           <div className = 'top-background'></div>
           <div className = 'logo'></div>
           <RouterLink className = 'navbutton' activeClassName = 'active' exact to = 'explorer' > Block Explorer </RouterLink>
+          <a className = 'navbutton' activeClassName = 'active' href = 'https://app.tokenhost.com' id = 'AppBuilder'> App Builder </a>
           <RouterLink className = 'navbutton' activeClassName = 'active' exact to = '/' id = 'overviewlink'> Overview </RouterLink>       
+       
 
         <div style={{ margin: "0px 25px 0px 25px" }}>
           <QueryParamProvider ReactRouterRoute={Route}>

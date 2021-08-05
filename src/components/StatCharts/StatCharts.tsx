@@ -46,17 +46,6 @@ const StatCharts: React.FC<IProps> = ({ blocks, victoryTheme }) => {
   const { t } = useTranslation();
   return (
     <Grid item container>
-      <Grid key="hashChart" item xs={12} md={6} lg={3}>
-        <ChartCard title={t("Hash Rate")}>
-          <VictoryChart
-            height={config.chartHeight}
-            width={config.chartWidth}
-            theme={victoryTheme as any}
-          >
-            <VictoryLine data={blocks.map(blockMapHashRate)} />
-          </VictoryChart>
-        </ChartCard>
-      </Grid>
       <Grid key="txChart" item xs={12} md={6} lg={3}>
         <ChartCard title={t("Transaction count")}>
           <VictoryChart

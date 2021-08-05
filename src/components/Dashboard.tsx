@@ -121,18 +121,8 @@ export default (props: any) => {
             </ChartCard>
           </Grid>
           <Grid key="hRate" item>
-            <ChartCard title={t("Network Hash Rate")}>
-              {block &&
-                <HashRate block={block} blockTime={config.blockTime}>
-                  {(hashRate: any) => <Typography variant="h4">{hashRate} GH/s</Typography>}
-                </HashRate>
-              }
-            </ChartCard>
           </Grid>
           <Grid key="peers" item>
-            <ChartCard title={t("Peers")}>
-              <Typography variant="h4">{hexToNumber(peerCount)}</Typography>
-            </ChartCard>
           </Grid>
         </Grid>
       </Grid>

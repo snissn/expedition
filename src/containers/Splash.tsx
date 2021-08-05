@@ -130,40 +130,7 @@ const [selectedNetwork, setSelectedNetworkState] = useState();
     <div className = 'mobile-container'>
       <div>
 
-          <div className = 'upload-cloud-graphic' style = {{width:'52rem'}}></div>
           <div className  = 'navbox-grid'>
-            <div className = 'navbox'>
-              <h1 className = 'title'>JSON-RPC API</h1>
-              <p className = 'body'> The text is in Montserrat this time, though I remember something about Proxima Nova?</p>
-              <a className = 'link' 
-              onClick={() =>window.open("https://playground.open-rpc.org/?schemaUrl=https://raw.githubusercontent.com/etclabscore/ethereum-json-rpc-specification/master/openrpc.json" ) }
-              > 
-              <span /> <NotesIcon fontSize = 'large'/>Documentation <span /> </a>
-            </div>            
-            <span />
-            <div className = 'navbox'>
-              <h1 className = 'title'>Expedition Code</h1>
-              <p className = 'body'> I know this text was blue in the original design, but I think the aesthetics of this is much better. </p>
-              <a className = 'link' 
-                    onClick={() => window.open("https://github.com/etclabscore/expedition")}
-              >
-                 <span /> <CodeIcon fontSize = 'large'/>Github <span /> </a>
-            </div>            
-            <div className = 'navbox'>
-              <h1 className = 'title'>Service Runner RPC</h1>
-              <p className = 'body'> The text is in Montserrat this time, though I remember something about Proxima Nova?</p>
-              <input placeholder = 'URL' 
-                value = {serviceRunnerUrl}
-                onChange = {e => {setServiceRunnerUrl(e.target.value);}}/>
-            </div>
-            <span />
-            <div className = 'navbox'>
-              <h1 className = 'title'>Etherium RPC</h1>
-              <p className = 'body'> The text is in Montserrat this time, though I remember something about Proxima Nova?</p>
-              <input placeholder = 'URL' 
-                value = {etheriumURL}
-                onChange = {e => {setEtheriumURL(e.target.value); setCoreGethUrlOverride(e.target.value)}}/>
-            </div>          
             <InputBase
                   placeholder={t(
                     "Enter an Address, Transaction Hash or Block Number"
@@ -195,7 +162,7 @@ const [selectedNetwork, setSelectedNetworkState] = useState();
 
 
     </div>
-    <div className = 'wedge' id = 'explorer-wedge' style = {{ minHeight:'50vh'}}></div>
+    <div className = 'xxwedge' id = 'xxexplorer-wedge' style = {{ minHeight:'250px'}}></div>
     </>
   )
 }

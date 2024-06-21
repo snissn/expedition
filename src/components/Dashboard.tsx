@@ -121,18 +121,8 @@ export default (props: any) => {
             </ChartCard>
           </Grid>
           <Grid key="hRate" item>
-            <ChartCard title={t("Network Hash Rate")}>
-              {block &&
-                <HashRate block={block} blockTime={config.blockTime}>
-                  {(hashRate: any) => <Typography variant="h4">{hashRate} GH/s</Typography>}
-                </HashRate>
-              }
-            </ChartCard>
           </Grid>
           <Grid key="peers" item>
-            <ChartCard title={t("Peers")}>
-              <Typography variant="h4">{hexToNumber(peerCount)}</Typography>
-            </ChartCard>
           </Grid>
         </Grid>
       </Grid>
@@ -142,7 +132,7 @@ export default (props: any) => {
           color="primary"
           variant="outlined"
           endIcon={<ArrowForwardIos />}
-          onClick={() => history.push("/stats/miners")}
+          onClick={() => history.push("explorer/stats/miners")}
         >More Stats</Button>
       </Grid>
       <br />
@@ -153,7 +143,7 @@ export default (props: any) => {
         disablePrev={true}
         disableNext={blockNumber < 14}
         onNext={() => {
-          history.push(`/blocks/${blockNumber - 15}`);
+          history.push(`/explorer/blocks/${blockNumber - 15}`);
         }}
         style={{ marginTop: "30px" }} />
     </div >

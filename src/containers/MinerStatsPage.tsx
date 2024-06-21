@@ -45,10 +45,10 @@ export default (props: IProps) => {
       return;
     }
     if (blockNum > blockNumber) {
-      props.history.push(`/stats/miners/${blockNumber}`);
+      props.history.push(`/explorer/stats/miners/${blockNumber}`);
     }
     if (blockNum < 0) {
-      props.history.push(`/stats/miners/0`);
+      props.history.push(`/explorer/stats/miners/0`);
     }
   }, [blockNumber, blockNum, props.history]);
 
@@ -77,11 +77,11 @@ export default (props: IProps) => {
         disableNext={blockNum === 0}
         onPrev={() => {
           const newQuery = blockNum + 100;
-          props.history.push(`/stats/miners/${newQuery}`);
+          props.history.push(`/explorer/stats/miners/${newQuery}`);
         }}
         onNext={() => {
           const newQuery = Math.max(blockNum - 100, 0);
-          props.history.push(`/stats/miners/${newQuery}`);
+          props.history.push(`/explorer/stats/miners/${newQuery}`);
         }}
       ></BlockPagination>
       <StatCharts blocks={blocks} victoryTheme={victoryTheme} />

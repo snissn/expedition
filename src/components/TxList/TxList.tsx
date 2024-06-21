@@ -6,6 +6,7 @@ import { Table, TableBody, TableCell, TableHead, TableRow } from "@material-ui/c
 import { hexToNumber } from "@etclabscore/eserialize";
 
 function TxListItem({ tx, showblockNumber }: { tx: any, showblockNumber?: boolean }) {
+  const FontStyle = {fontWeight: 600, fontSize: '1.5rem'};
   return (
     <TableRow>
       {showblockNumber && <TableCell>{hexToNumber(tx.blockNumber)}</TableCell>}
@@ -13,7 +14,7 @@ function TxListItem({ tx, showblockNumber }: { tx: any, showblockNumber?: boolea
       <TableCell>
         <Link
           component={({ className, children }: { children: any, className: string }) => (
-            <RouterLink className={className} to={`/tx/${tx.hash}`} >
+            <RouterLink style = {FontStyle} className={className} to={`/explorer/tx/${tx.hash}`} >
               {children}
             </RouterLink>
           )}>
@@ -24,7 +25,7 @@ function TxListItem({ tx, showblockNumber }: { tx: any, showblockNumber?: boolea
       <TableCell>
         <Link
           component={({ className, children }: { children: any, className: string }) => (
-            <RouterLink className={className} to={`/address/${tx.from}`} >
+            <RouterLink style = {FontStyle} className={className} to={`/explorer/address/${tx.from}`} >
               {children}
             </RouterLink>
           )}>
@@ -36,7 +37,7 @@ function TxListItem({ tx, showblockNumber }: { tx: any, showblockNumber?: boolea
         {tx.to !== null ?
           <Link
             component={({ className, children }: { children: any, className: string }) => (
-              <RouterLink className={className} to={`/address/${tx.to}`} >
+              <RouterLink style = {FontStyle} className={className} to={`/explorer/address/${tx.to}`} >
                 {children}
               </RouterLink>
             )}>
@@ -45,7 +46,7 @@ function TxListItem({ tx, showblockNumber }: { tx: any, showblockNumber?: boolea
           : null}
       </TableCell>
 
-      <TableCell>{hexToNumber(tx.transactionIndex)}</TableCell>
+      <TableCell style = {FontStyle}>{hexToNumber(tx.transactionIndex)}</TableCell>
     </TableRow>
   );
 }
@@ -56,15 +57,16 @@ export interface ITxListProps {
 }
 
 function TxList(props: ITxListProps) {
+  const FontStyle = {fontWeight: 600, fontSize: '1.5rem'};
   return (
     <Table>
       <TableHead>
         <TableRow>
           {props.showBlockNumber && <TableCell>Block Number</TableCell>}
-          <TableCell>Hash</TableCell>
-          <TableCell>From</TableCell>
-          <TableCell>To</TableCell>
-          <TableCell>Index</TableCell>
+          <TableCell style = {FontStyle}>Hash</TableCell>
+          <TableCell style = {FontStyle}>From</TableCell>
+          <TableCell style = {FontStyle}>To</TableCell>
+          <TableCell style = {FontStyle}>Index</TableCell>
         </TableRow>
       </TableHead>
 
